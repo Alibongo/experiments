@@ -1,11 +1,12 @@
 import React from 'react'
 
-const List = ({nameOfProps})=>{
+const List = ({items})=>{
+  console.log(items)
   return(
     <ul>
     {
-      nameOfProps.map((item,index) => (
-        <li key={index}>{item}</li>
+      items.map((item,index) => (
+        <li key={index}>{item.text}<input type="checkbox"/></li>
       )
     )
 

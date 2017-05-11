@@ -8,7 +8,7 @@ constructor(props){
   super(props)
   this.state = {
     value: '',
-    items: []
+    items: [{text: "", isCompleted: false}]
   }
 }
 // change state value
@@ -17,7 +17,7 @@ onChange = (event) =>{
   this.setState({value: event.target.value})
 }
 // set display of items
-onHandleSubmit = (event) => {
+handleSubmit = (event) => {
   event.preventDefault()
   this.setState({items: [...this.state.items, this.state.value],
     value: ''
@@ -31,12 +31,11 @@ onHandleSubmit = (event) => {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <form onSubmit={this.onHandleSubmit}>
-        <input value={this.state.value} onChange={this.onChange}/>
-<button>Add item</button>
-</form>
-<List nameOfProps={this.state.items}/>
-
+        <form onSubmit={this.handleSubmit}>
+          <input value={this.state.value} onChange={this.onChange}/>
+          <button>Add item</button>
+        </form>
+        <List items={this.state.items}/>
       </div>
     );
   }
