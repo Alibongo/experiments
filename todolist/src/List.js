@@ -1,18 +1,12 @@
 import React from 'react'
 
-const List = ({items})=>{
-  console.log(items)
-  return(
-    <ul>
-    {
-      items.map((item,index) => (
-        <li key={index}>{item.text}<input type="checkbox"/></li>
-      )
-    )
-
-
-}
-    </ul>
+const List = ({text, checked, onChange, ...props}) => {
+  return (
+    <div>
+      <input type="checkbox" checked={checked} onChange={() => onChange(text)} />
+  		<span>{text}</span>
+    </div>
   )
 }
+
 export default List
